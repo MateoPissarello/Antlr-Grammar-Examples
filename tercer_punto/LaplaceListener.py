@@ -26,6 +26,15 @@ class LaplaceListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LaplaceParser#sumExpr.
+    def enterSumExpr(self, ctx:LaplaceParser.SumExprContext):
+        pass
+
+    # Exit a parse tree produced by LaplaceParser#sumExpr.
+    def exitSumExpr(self, ctx:LaplaceParser.SumExprContext):
+        pass
+
+
     # Enter a parse tree produced by LaplaceParser#functionExpr.
     def enterFunctionExpr(self, ctx:LaplaceParser.FunctionExprContext):
         pass

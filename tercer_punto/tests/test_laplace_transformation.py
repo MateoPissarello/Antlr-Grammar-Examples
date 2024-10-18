@@ -47,7 +47,7 @@ class TestLaplaceTransform(unittest.TestCase):
 
     def test_exp_combined(self):
         result = self.evaluate("L[e^(2t) + e^(3t)]")
-        expected = 1 / (s - 2) + 1 / (s - 3)
+        expected = 1 / (s - 2.0) + 1 / (s - 3.0)
         self.assertEqual(result, expected)
 
 

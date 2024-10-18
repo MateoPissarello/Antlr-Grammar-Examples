@@ -1,27 +1,22 @@
 grammar Laplace;
 
-/*
- * Parser rules
- */
+// Parser rules
+expr: laplaceExpr | sumExpr;
 
-expr: laplaceExpr | functionExpr;
+laplaceExpr: 'L' '[' expr ']';
 
-laplaceExpr: 'L' '[' functionExpr ']';
+// Permitir expresiones combinadas
+sumExpr: functionExpr (('+' | '-') functionExpr)*;
 
+// Definir las funciones
 functionExpr: expExpr | sinExpr | cosExpr | tExpr;
 
 expExpr: 'e^' NUMBER 't';
-
 sinExpr: 'sin(' NUMBER 't)';
-
 cosExpr: 'cos(' NUMBER 't)';
-
 tExpr: 't^' NUMBER;
 
-/*
- * Lexer rules
- */
-
+// Lexer rules
 NUMBER:
 	[0-9]+ ('.' [0-9]+)?; // Reconoce números enteros y decimales
 WS: [ \t\r\n]+ -> skip; // Ignora espacios en blanco

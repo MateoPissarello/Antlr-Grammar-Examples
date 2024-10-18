@@ -19,6 +19,11 @@ class LaplaceVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LaplaceParser#sumExpr.
+    def visitSumExpr(self, ctx:LaplaceParser.SumExprContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LaplaceParser#functionExpr.
     def visitFunctionExpr(self, ctx:LaplaceParser.FunctionExprContext):
         return self.visitChildren(ctx)
