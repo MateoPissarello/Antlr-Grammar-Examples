@@ -44,6 +44,15 @@ class LaplaceListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LaplaceParser#numberExpr.
+    def enterNumberExpr(self, ctx:LaplaceParser.NumberExprContext):
+        pass
+
+    # Exit a parse tree produced by LaplaceParser#numberExpr.
+    def exitNumberExpr(self, ctx:LaplaceParser.NumberExprContext):
+        pass
+
+
     # Enter a parse tree produced by LaplaceParser#expExpr.
     def enterExpExpr(self, ctx:LaplaceParser.ExpExprContext):
         pass

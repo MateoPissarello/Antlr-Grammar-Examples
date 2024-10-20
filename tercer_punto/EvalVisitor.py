@@ -55,6 +55,10 @@ class EvalVisitor(LaplaceVisitor):
             return self.convert_to_int_if_needed(simplified_result)
         return self.convert_to_int_if_needed(result)
 
+    # Método para manejar números
+    def visitNumberExpr(self, ctx: LaplaceParser.NumberExprContext):
+        return float(ctx.getText())  # Convertir el texto del número a float
+
     def convert_to_int_if_needed(self, expr):
         """Convierte expresiones que son números enteros a enteros en lugar de flotantes."""
         if expr.is_number:

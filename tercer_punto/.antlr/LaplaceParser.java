@@ -1,4 +1,4 @@
-// Generated from /home/pissarello-dev/Documentos/Code/univerity/semestre-v/lpt/Antlr-Grammar-Examples/tercer_punto/Laplace.g4 by ANTLR 4.13.1
+// Generated from /home/pissarello-dev/Documentos/Code/university/semestre-v/lpt/parcial_2/tercer_punto/Laplace.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -20,11 +20,12 @@ public class LaplaceParser extends Parser {
 		T__9=10, T__10=11, NUMBER=12, WS=13;
 	public static final int
 		RULE_expr = 0, RULE_laplaceExpr = 1, RULE_sumExpr = 2, RULE_functionExpr = 3, 
-		RULE_expExpr = 4, RULE_sinExpr = 5, RULE_cosExpr = 6, RULE_tExpr = 7;
+		RULE_numberExpr = 4, RULE_expExpr = 5, RULE_sinExpr = 6, RULE_cosExpr = 7, 
+		RULE_tExpr = 8;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"expr", "laplaceExpr", "sumExpr", "functionExpr", "expExpr", "sinExpr", 
-			"cosExpr", "tExpr"
+			"expr", "laplaceExpr", "sumExpr", "functionExpr", "numberExpr", "expExpr", 
+			"sinExpr", "cosExpr", "tExpr"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -101,6 +102,9 @@ public class LaplaceParser extends Parser {
 		public SumExprContext sumExpr() {
 			return getRuleContext(SumExprContext.class,0);
 		}
+		public NumberExprContext numberExpr() {
+			return getRuleContext(NumberExprContext.class,0);
+		}
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -111,13 +115,13 @@ public class LaplaceParser extends Parser {
 		ExprContext _localctx = new ExprContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_expr);
 		try {
-			setState(18);
+			setState(21);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__0:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(16);
+				setState(18);
 				laplaceExpr();
 				}
 				break;
@@ -127,8 +131,15 @@ public class LaplaceParser extends Parser {
 			case T__10:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(17);
+				setState(19);
 				sumExpr();
+				}
+				break;
+			case NUMBER:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(20);
+				numberExpr();
 				}
 				break;
 			default:
@@ -163,13 +174,13 @@ public class LaplaceParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(20);
-			match(T__0);
-			setState(21);
-			match(T__1);
-			setState(22);
-			expr();
 			setState(23);
+			match(T__0);
+			setState(24);
+			match(T__1);
+			setState(25);
+			expr();
+			setState(26);
 			match(T__2);
 			}
 		}
@@ -205,15 +216,15 @@ public class LaplaceParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(25);
+			setState(28);
 			functionExpr();
-			setState(30);
+			setState(33);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__3 || _la==T__4) {
 				{
 				{
-				setState(26);
+				setState(29);
 				_la = _input.LA(1);
 				if ( !(_la==T__3 || _la==T__4) ) {
 				_errHandler.recoverInline(this);
@@ -223,11 +234,11 @@ public class LaplaceParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(27);
+				setState(30);
 				functionExpr();
 				}
 				}
-				setState(32);
+				setState(35);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -268,39 +279,69 @@ public class LaplaceParser extends Parser {
 		FunctionExprContext _localctx = new FunctionExprContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_functionExpr);
 		try {
-			setState(37);
+			setState(40);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__5:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(33);
+				setState(36);
 				expExpr();
 				}
 				break;
 			case T__7:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(34);
+				setState(37);
 				sinExpr();
 				}
 				break;
 			case T__9:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(35);
+				setState(38);
 				cosExpr();
 				}
 				break;
 			case T__10:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(36);
+				setState(39);
 				tExpr();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class NumberExprContext extends ParserRuleContext {
+		public TerminalNode NUMBER() { return getToken(LaplaceParser.NUMBER, 0); }
+		public NumberExprContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_numberExpr; }
+	}
+
+	public final NumberExprContext numberExpr() throws RecognitionException {
+		NumberExprContext _localctx = new NumberExprContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_numberExpr);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(42);
+			match(NUMBER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -325,15 +366,15 @@ public class LaplaceParser extends Parser {
 
 	public final ExpExprContext expExpr() throws RecognitionException {
 		ExpExprContext _localctx = new ExpExprContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_expExpr);
+		enterRule(_localctx, 10, RULE_expExpr);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(39);
+			setState(44);
 			match(T__5);
-			setState(40);
+			setState(45);
 			match(NUMBER);
-			setState(41);
+			setState(46);
 			match(T__6);
 			}
 		}
@@ -359,15 +400,15 @@ public class LaplaceParser extends Parser {
 
 	public final SinExprContext sinExpr() throws RecognitionException {
 		SinExprContext _localctx = new SinExprContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_sinExpr);
+		enterRule(_localctx, 12, RULE_sinExpr);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(43);
+			setState(48);
 			match(T__7);
-			setState(44);
+			setState(49);
 			match(NUMBER);
-			setState(45);
+			setState(50);
 			match(T__8);
 			}
 		}
@@ -393,15 +434,15 @@ public class LaplaceParser extends Parser {
 
 	public final CosExprContext cosExpr() throws RecognitionException {
 		CosExprContext _localctx = new CosExprContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_cosExpr);
+		enterRule(_localctx, 14, RULE_cosExpr);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(47);
+			setState(52);
 			match(T__9);
-			setState(48);
+			setState(53);
 			match(NUMBER);
-			setState(49);
+			setState(54);
 			match(T__8);
 			}
 		}
@@ -427,13 +468,13 @@ public class LaplaceParser extends Parser {
 
 	public final TExprContext tExpr() throws RecognitionException {
 		TExprContext _localctx = new TExprContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_tExpr);
+		enterRule(_localctx, 16, RULE_tExpr);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(56);
 			match(T__10);
-			setState(52);
+			setState(57);
 			match(NUMBER);
 			}
 		}
@@ -449,39 +490,41 @@ public class LaplaceParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\r7\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\r<\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
-		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0001"+
-		"\u0000\u0001\u0000\u0003\u0000\u0013\b\u0000\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0005"+
-		"\u0002\u001d\b\u0002\n\u0002\f\u0002 \t\u0002\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0003\u0003\u0003&\b\u0003\u0001\u0004\u0001\u0004"+
+		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
+		"\b\u0007\b\u0001\u0000\u0001\u0000\u0001\u0000\u0003\u0000\u0016\b\u0000"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0002"+
+		"\u0001\u0002\u0001\u0002\u0005\u0002 \b\u0002\n\u0002\f\u0002#\t\u0002"+
+		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0003\u0003)\b\u0003"+
 		"\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005"+
 		"\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0007\u0001\u0007"+
-		"\u0001\u0007\u0001\u0007\u0000\u0000\b\u0000\u0002\u0004\u0006\b\n\f\u000e"+
-		"\u0000\u0001\u0001\u0000\u0004\u00053\u0000\u0012\u0001\u0000\u0000\u0000"+
-		"\u0002\u0014\u0001\u0000\u0000\u0000\u0004\u0019\u0001\u0000\u0000\u0000"+
-		"\u0006%\u0001\u0000\u0000\u0000\b\'\u0001\u0000\u0000\u0000\n+\u0001\u0000"+
-		"\u0000\u0000\f/\u0001\u0000\u0000\u0000\u000e3\u0001\u0000\u0000\u0000"+
-		"\u0010\u0013\u0003\u0002\u0001\u0000\u0011\u0013\u0003\u0004\u0002\u0000"+
-		"\u0012\u0010\u0001\u0000\u0000\u0000\u0012\u0011\u0001\u0000\u0000\u0000"+
-		"\u0013\u0001\u0001\u0000\u0000\u0000\u0014\u0015\u0005\u0001\u0000\u0000"+
-		"\u0015\u0016\u0005\u0002\u0000\u0000\u0016\u0017\u0003\u0000\u0000\u0000"+
-		"\u0017\u0018\u0005\u0003\u0000\u0000\u0018\u0003\u0001\u0000\u0000\u0000"+
-		"\u0019\u001e\u0003\u0006\u0003\u0000\u001a\u001b\u0007\u0000\u0000\u0000"+
-		"\u001b\u001d\u0003\u0006\u0003\u0000\u001c\u001a\u0001\u0000\u0000\u0000"+
-		"\u001d \u0001\u0000\u0000\u0000\u001e\u001c\u0001\u0000\u0000\u0000\u001e"+
-		"\u001f\u0001\u0000\u0000\u0000\u001f\u0005\u0001\u0000\u0000\u0000 \u001e"+
-		"\u0001\u0000\u0000\u0000!&\u0003\b\u0004\u0000\"&\u0003\n\u0005\u0000"+
-		"#&\u0003\f\u0006\u0000$&\u0003\u000e\u0007\u0000%!\u0001\u0000\u0000\u0000"+
-		"%\"\u0001\u0000\u0000\u0000%#\u0001\u0000\u0000\u0000%$\u0001\u0000\u0000"+
-		"\u0000&\u0007\u0001\u0000\u0000\u0000\'(\u0005\u0006\u0000\u0000()\u0005"+
-		"\f\u0000\u0000)*\u0005\u0007\u0000\u0000*\t\u0001\u0000\u0000\u0000+,"+
-		"\u0005\b\u0000\u0000,-\u0005\f\u0000\u0000-.\u0005\t\u0000\u0000.\u000b"+
-		"\u0001\u0000\u0000\u0000/0\u0005\n\u0000\u000001\u0005\f\u0000\u00001"+
-		"2\u0005\t\u0000\u00002\r\u0001\u0000\u0000\u000034\u0005\u000b\u0000\u0000"+
-		"45\u0005\f\u0000\u00005\u000f\u0001\u0000\u0000\u0000\u0003\u0012\u001e"+
-		"%";
+		"\u0001\u0007\u0001\u0007\u0001\b\u0001\b\u0001\b\u0001\b\u0000\u0000\t"+
+		"\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0000\u0001\u0001\u0000\u0004"+
+		"\u00058\u0000\u0015\u0001\u0000\u0000\u0000\u0002\u0017\u0001\u0000\u0000"+
+		"\u0000\u0004\u001c\u0001\u0000\u0000\u0000\u0006(\u0001\u0000\u0000\u0000"+
+		"\b*\u0001\u0000\u0000\u0000\n,\u0001\u0000\u0000\u0000\f0\u0001\u0000"+
+		"\u0000\u0000\u000e4\u0001\u0000\u0000\u0000\u00108\u0001\u0000\u0000\u0000"+
+		"\u0012\u0016\u0003\u0002\u0001\u0000\u0013\u0016\u0003\u0004\u0002\u0000"+
+		"\u0014\u0016\u0003\b\u0004\u0000\u0015\u0012\u0001\u0000\u0000\u0000\u0015"+
+		"\u0013\u0001\u0000\u0000\u0000\u0015\u0014\u0001\u0000\u0000\u0000\u0016"+
+		"\u0001\u0001\u0000\u0000\u0000\u0017\u0018\u0005\u0001\u0000\u0000\u0018"+
+		"\u0019\u0005\u0002\u0000\u0000\u0019\u001a\u0003\u0000\u0000\u0000\u001a"+
+		"\u001b\u0005\u0003\u0000\u0000\u001b\u0003\u0001\u0000\u0000\u0000\u001c"+
+		"!\u0003\u0006\u0003\u0000\u001d\u001e\u0007\u0000\u0000\u0000\u001e \u0003"+
+		"\u0006\u0003\u0000\u001f\u001d\u0001\u0000\u0000\u0000 #\u0001\u0000\u0000"+
+		"\u0000!\u001f\u0001\u0000\u0000\u0000!\"\u0001\u0000\u0000\u0000\"\u0005"+
+		"\u0001\u0000\u0000\u0000#!\u0001\u0000\u0000\u0000$)\u0003\n\u0005\u0000"+
+		"%)\u0003\f\u0006\u0000&)\u0003\u000e\u0007\u0000\')\u0003\u0010\b\u0000"+
+		"($\u0001\u0000\u0000\u0000(%\u0001\u0000\u0000\u0000(&\u0001\u0000\u0000"+
+		"\u0000(\'\u0001\u0000\u0000\u0000)\u0007\u0001\u0000\u0000\u0000*+\u0005"+
+		"\f\u0000\u0000+\t\u0001\u0000\u0000\u0000,-\u0005\u0006\u0000\u0000-."+
+		"\u0005\f\u0000\u0000./\u0005\u0007\u0000\u0000/\u000b\u0001\u0000\u0000"+
+		"\u000001\u0005\b\u0000\u000012\u0005\f\u0000\u000023\u0005\t\u0000\u0000"+
+		"3\r\u0001\u0000\u0000\u000045\u0005\n\u0000\u000056\u0005\f\u0000\u0000"+
+		"67\u0005\t\u0000\u00007\u000f\u0001\u0000\u0000\u000089\u0005\u000b\u0000"+
+		"\u00009:\u0005\f\u0000\u0000:\u0011\u0001\u0000\u0000\u0000\u0003\u0015"+
+		"!(";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -1,7 +1,7 @@
 grammar Laplace;
 
 // Parser rules
-expr: laplaceExpr | sumExpr;
+expr: laplaceExpr | sumExpr | numberExpr;
 
 laplaceExpr: 'L' '[' expr ']';
 
@@ -11,6 +11,8 @@ sumExpr: functionExpr (('+' | '-') functionExpr)*;
 // Definir las funciones
 functionExpr: expExpr | sinExpr | cosExpr | tExpr;
 
+
+numberExpr: NUMBER;
 expExpr: 'e^' NUMBER 't';
 sinExpr: 'sin(' NUMBER 't)';
 cosExpr: 'cos(' NUMBER 't)';

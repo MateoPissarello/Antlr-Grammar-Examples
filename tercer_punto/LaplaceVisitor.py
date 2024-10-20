@@ -29,6 +29,11 @@ class LaplaceVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LaplaceParser#numberExpr.
+    def visitNumberExpr(self, ctx:LaplaceParser.NumberExprContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LaplaceParser#expExpr.
     def visitExpExpr(self, ctx:LaplaceParser.ExpExprContext):
         return self.visitChildren(ctx)
