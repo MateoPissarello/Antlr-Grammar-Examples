@@ -1,4 +1,4 @@
-// Generated from /home/pissarello-dev/Documentos/Code/university/semestre-v/redes/parcial_2/primer_punto/FractionCalc.g4 by ANTLR 4.13.1
+// Generated from /home/pissarello-dev/Documentos/Code/university/semestre-v/lpt/parcial_2/primer_punto/FractionCalc.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
